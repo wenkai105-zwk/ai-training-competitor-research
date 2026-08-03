@@ -2,7 +2,7 @@
 <html lang="zh-CN">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes">
 <title>AI培训竞品调研报告</title>
 <style>
   * { margin:0; padding:0; box-sizing:border-box; }
@@ -97,8 +97,42 @@
   .footer h2 { font-size:26px; font-weight:700; letter-spacing:-0.02em; margin-bottom:8px; color:var(--accent); }
   .footer p { color:var(--text3); font-size:14px; }
   @media (max-width:640px) {
-    .hero h1 { font-size:28px; } .sec-title { font-size:22px; }
-    .grid-2,.grid-3 { grid-template-columns:1fr; } .stats-row { gap:20px; }
+    .hero { padding: 48px 0 36px; border-radius: 0 0 20px 20px; }
+    .hero h1 { font-size: 24px; }
+    .hero .sub { font-size: 15px; padding: 0 16px; }
+    .hero .kicker { font-size: 11px; }
+    .stats-row { gap: 16px; padding: 24px 0 0; }
+    .stat .n { font-size: 26px; }
+    .stat .l { font-size: 11px; }
+    .wrap { padding: 0 16px; }
+    .sec { padding: 36px 0; }
+    .sec-eyebrow { font-size: 11px; }
+    .sec-title { font-size: 20px; }
+    .sec-desc { font-size: 13px; margin-bottom: 20px; }
+    .grid-2, .grid-3 { grid-template-columns: 1fr; gap: 12px; }
+    .card { padding: 16px 18px; }
+    .card h3 { font-size: 15px; }
+    .card p { font-size: 13px; }
+    .tbl { font-size: 13px; }
+    .tbl th, .tbl td { padding: 8px 10px; }
+    .keybox { padding: 16px 18px; margin-bottom: 16px; }
+    .keybox li { font-size: 13px; margin-bottom: 6px; }
+    .case { padding: 16px 18px; }
+    .case-title { font-size: 14px; }
+    .concl p, .quote { font-size: 12px; }
+    .mod { padding: 14px 18px; }
+    .mod-title { font-size: 14px; }
+    .mod p.detail { font-size: 12px; }
+    .course-header h3 { font-size: 18px; }
+    .course-header .label { font-size: 12px; }
+    .footer h2 { font-size: 20px; }
+    .footer { padding: 40px 0 32px; }
+    /* 确保所有文字可选中、可缩放 */
+    body { -webkit-text-size-adjust: 100%; }
+    /* 防止iOS点击高亮闪烁 */
+    a, .tag, .case, .card, .mod { -webkit-tap-highlight-color: transparent; }
+    /* 表格横向滚动 */
+    .tbl-wrap { overflow-x: auto; -webkit-overflow-scrolling: touch; }
   }
 </style>
 </head>
@@ -127,7 +161,7 @@
   <div class="grid-2">
     <div class="card">
       <h3>📊 数据采集</h3>
-      <table class="tbl">
+      <div class="tbl-wrap"><table class="tbl">
         <thead><tr><th>平台</th><th>内容</th><th>评论</th></tr></thead>
         <tbody>
           <tr><td>B站</td><td><strong>90</strong></td><td>424</td></tr>
@@ -135,7 +169,7 @@
           <tr><td>知乎</td><td><strong>327</strong></td><td>3,657</td></tr>
           <tr><td>小红书</td><td><strong>15</strong></td><td>150</td></tr>
         </tbody>
-      </table>
+      </table></div>
     </div>
     <div class="card">
       <h3>🔍 分析方法</h3>
@@ -163,7 +197,7 @@
     </ol>
   </div>
 
-  <table class="tbl">
+  <div class="tbl-wrap"><table class="tbl">
     <thead><tr><th>类型</th><th>代表</th><th>价格区间</th><th>信任度</th></tr></thead>
     <tbody>
       <tr><td><span class="tag tag-blue">免费引流IP</span></td><td>秋芝2046、Rick讲AI</td><td>免费</td><td><strong style="color:#1a8a3e;">高</strong></td></tr>
@@ -172,7 +206,7 @@
       <tr><td><span class="tag tag-purple">高校背书</span></td><td>交大训练营、北大总裁班</td><td>6,580-68,000元</td><td><strong style="color:var(--accent);">高</strong></td></tr>
       <tr><td><span class="tag tag-orange">B端/政企</span></td><td>乘路资讯、真术相成</td><td>企业采购</td><td><strong style="color:var(--gold);">中高</strong></td></tr>
     </tbody>
-  </table>
+  </table></div>
 </div></div>
 
 <!-- ===== 03 十个竞品案例 ===== -->
