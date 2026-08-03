@@ -1,0 +1,544 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI培训竞品调研报告</title>
+<style>
+  * { margin:0; padding:0; box-sizing:border-box; }
+  :root {
+    --bg: #d4eef0;
+    --bg2: #c8e6e9;
+    --card: #ffffff;
+    --card-soft: #f4fbfa;
+    --text: #0a3d38;
+    --text2: #4a7a78;
+    --text3: #7da5a2;
+    --accent: #0a8d80;
+    --accent2: #15b8a6;
+    --accent-light: #e0f5f3;
+    --coral: #e85d5d;
+    --gold: #c8951e;
+    --navy: #3a5a6a;
+    --radius: 14px;
+  }
+  body {
+    font-family: -apple-system, "SF Pro Display", "PingFang SC", "Helvetica Neue", sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    line-height: 1.65;
+    font-size: 15px;
+    -webkit-font-smoothing: antialiased;
+    letter-spacing: -0.01em;
+  }
+  .wrap { max-width: 860px; margin: 0 auto; padding: 0 24px; }
+
+  /* HERO */
+  .hero {
+    background: linear-gradient(160deg, #b8e2e6 0%, #d4eef0 50%, #c8e6e9 100%);
+    padding: 80px 0 56px;
+    text-align: center;
+    border-radius: 0 0 28px 28px;
+  }
+  .hero .kicker {
+    font-size: 13px; font-weight:700; color: var(--accent);
+    letter-spacing: 2px; text-transform: uppercase; margin-bottom: 16px;
+  }
+  .hero h1 {
+    font-size: 40px; font-weight:700; letter-spacing:-0.03em;
+    line-height: 1.2; margin-bottom: 14px;
+  }
+  .hero h1 .grad {
+    background: linear-gradient(135deg, var(--accent), var(--accent2));
+    -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+  }
+  .hero .sub { color: var(--text2); font-size: 17px; max-width: 460px; margin: 0 auto; }
+  .stats-row { display:flex; justify-content:center; gap:44px; padding:36px 0 0; flex-wrap:wrap; }
+  .stat { text-align:center; }
+  .stat .n { font-size:34px; font-weight:700; color:var(--accent); }
+  .stat .l { font-size:12px; color:var(--text3); margin-top:2px; }
+
+  /* SECTION */
+  .sec { padding: 56px 0; }
+  .sec-eyebrow { font-size:13px; font-weight:700; color:var(--accent); margin-bottom:8px; letter-spacing:1px; }
+  .sec-title { font-size:28px; font-weight:700; letter-spacing:-0.02em; line-height:1.2; margin-bottom:6px; }
+  .sec-desc { color:var(--text2); font-size:15px; margin-bottom:28px; }
+
+  /* GRID */
+  .grid-2 { display:grid; grid-template-columns:1fr 1fr; gap:16px; }
+  .full { grid-column: 1 / -1; }
+
+  /* CARD */
+  .card { background:var(--card); border-radius:var(--radius); padding:20px 24px; }
+  .card h3 { font-size:16px; font-weight:700; margin-bottom:8px; }
+  .card p { color:var(--text2); font-size:14px; }
+  .card p + p { margin-top:5px; }
+
+  /* TABLE */
+  .tbl { width:100%; border-collapse:collapse; font-size:14px; }
+  .tbl th { text-align:left; padding:10px 12px; color:var(--text3); font-weight:600; font-size:12px; letter-spacing:0.5px; border-bottom:2px solid var(--accent-light); }
+  .tbl td { padding:10px 12px; border-bottom:1px solid var(--accent-light); }
+  .tbl tr:last-child td { border-bottom:none; }
+
+  /* TAGS */
+  .tag { display:inline-block; padding:3px 10px; border-radius:6px; font-size:12px; font-weight:600; }
+  .tag-blue { background:var(--accent-light); color:var(--accent); }
+  .tag-green { background:#e6f8f0; color:#1a8a3e; }
+  .tag-red { background:#fcecec; color:var(--coral); }
+  .tag-orange { background:#fdf5e8; color:var(--gold); }
+  .tag-purple { background:#f0ecf8; color:#7c4dc4; }
+
+  /* KEYBOX */
+  .keybox { background:var(--card); border-radius:var(--radius); padding:22px 26px; margin-bottom:24px; border-left:4px solid var(--accent); }
+  .keybox-title { font-size:13px; font-weight:700; color:var(--accent); margin-bottom:10px; }
+  .keybox ol { padding-left:18px; }
+  .keybox li { font-size:14px; color:var(--text); margin-bottom:8px; line-height:1.65; }
+  .keybox li:last-child { margin-bottom:0; }
+
+  /* CASE */
+  .case { background:var(--card); border-radius:var(--radius); padding:20px 24px; }
+  .case-head { display:flex; align-items:center; gap:10px; margin-bottom:12px; flex-wrap:wrap; }
+  .case-num { width:28px; height:28px; border-radius:50%; font-size:13px; font-weight:700; color:#fff; display:flex; align-items:center; justify-content:center; flex-shrink:0; }
+  .case-title { font-size:16px; font-weight:700; }
+  .case-tags { margin-left:auto; display:flex; gap:5px; flex-wrap:wrap; }
+  .case ul { padding-left:16px; margin:6px 0; }
+  .case li { font-size:13px; color:var(--text2); margin-bottom:3px; }
+
+  .concl { background:var(--card-soft); border-radius:10px; padding:12px 16px; margin-bottom:10px; border-left:3px solid var(--accent2); }
+  .concl p { font-size:13px; color:var(--text); }
+  .concl p + p { margin-top:4px; }
+
+  .quote { background:var(--card-soft); border-radius:8px; padding:10px 14px; margin:6px 0; font-size:13px; color:var(--text2); }
+  .quote-src { font-size:11px; color:var(--text3); margin-top:3px; }
+
+  .src { display:inline-block; margin-top:8px; font-size:12px; color:var(--accent); text-decoration:none; font-weight:600; }
+  .src:hover { text-decoration:underline; }
+
+  .arrow { font-size:13px; color:#1a8a3e; font-weight:600; margin-top:6px; }
+
+  /* MODULE */
+  .mod { background:var(--card); border-radius:var(--radius); padding:18px 22px; }
+  .mod-head { display:flex; align-items:center; gap:10px; margin-bottom:8px; flex-wrap:wrap; }
+  .mod-num { width:26px; height:26px; border-radius:7px; font-size:12px; font-weight:700; color:#fff; display:flex; align-items:center; justify-content:center; flex-shrink:0; }
+  .mod-title { font-size:15px; font-weight:700; }
+  .mod-tag { margin-left:auto; font-size:11px; color:var(--text3); }
+  .mod .note { font-size:12px; color:var(--accent); margin-bottom:6px; font-style:italic; }
+  .mod p.detail { font-size:13px; color:var(--text2); }
+  .mod ol { padding-left:16px; }
+  .mod li { font-size:13px; color:var(--text2); margin-bottom:4px; }
+
+  /* COURSE HEADER */
+  .course-header { text-align:center; margin-bottom:24px; margin-top:32px; }
+  .course-header:first-child { margin-top:0; }
+  .course-header .label { font-size:13px; font-weight:700; padding:5px 18px; border-radius:20px; display:inline-block; margin-bottom:12px; }
+  .course-header h3 { font-size:22px; font-weight:700; letter-spacing:-0.02em; margin-bottom:6px; }
+  .course-header p { font-size:14px; color:var(--text2); }
+
+  /* FOOTER */
+  .footer { text-align:center; padding:56px 0 48px; }
+  .footer h2 { font-size:26px; font-weight:700; letter-spacing:-0.02em; margin-bottom:8px; color:var(--accent); }
+  .footer p { color:var(--text3); font-size:14px; }
+
+  @media (max-width: 640px) {
+    .hero h1 { font-size:28px; }
+    .sec-title { font-size:22px; }
+    .grid-2 { grid-template-columns:1fr; }
+    .stats-row { gap:20px; }
+  }
+</style>
+</head>
+<body>
+
+<!-- HERO -->
+<div class="hero">
+  <div class="wrap">
+    <div class="kicker">竞品调研报告</div>
+    <h1>AI培训市场<br><span class="grad">竞品与用户反馈分析</span></h1>
+    <p class="sub">面向白领的AI应用培训市场全景扫描，覆盖B站、抖音、知乎、小红书。</p>
+    <div class="stats-row">
+      <div class="stat"><div class="n">4</div><div class="l">平台</div></div>
+      <div class="stat"><div class="n">5</div><div class="l">竞品案例</div></div>
+      <div class="stat"><div class="n">3,800+</div><div class="l">用户评论</div></div>
+      <div class="stat"><div class="n">5</div><div class="l">需求缺口</div></div>
+    </div>
+  </div>
+</div>
+
+<!-- ===== 01 调研概况 ===== -->
+<div class="sec">
+  <div class="wrap">
+    <div class="sec-eyebrow">01</div>
+    <div class="sec-title">调研概况</div>
+    <div class="sec-desc">数据来源与分析方法</div>
+
+    <div class="grid-2">
+      <div class="card">
+        <h3>📊 数据采集</h3>
+        <table class="tbl">
+          <thead><tr><th>平台</th><th>内容</th><th>评论</th></tr></thead>
+          <tbody>
+            <tr><td>B站</td><td><strong>90</strong></td><td>424</td></tr>
+            <tr><td>抖音</td><td><strong>69</strong></td><td>420</td></tr>
+            <tr><td>知乎</td><td><strong>130</strong></td><td>1,561</td></tr>
+            <tr><td>小红书</td><td><strong>15</strong></td><td>150</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="card">
+        <h3>🔍 分析方法</h3>
+        <p>采集四平台AI培训相关公开内容及评论。</p>
+        <p>对3,800+条评论过滤噪音，剔除水军和无实质内容评论。</p>
+        <p>按竞品分析、TA画像、痛点、需求缺口四个维度分类提炼。</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ===== 02 竞品全景 ===== -->
+<div class="sec">
+  <div class="wrap">
+    <div class="sec-eyebrow">02</div>
+    <div class="sec-title">竞品全景</div>
+    <div class="sec-desc">AI培训市场的四类玩家</div>
+
+    <div class="keybox">
+      <div class="keybox-title">核心结论</div>
+      <ol>
+        <li>市场分四类：<strong>免费教程IP</strong>、<strong>C端付费课</strong>、<strong>割韭菜漏斗</strong>、<strong>B端企业内训</strong>。</li>
+        <li>只有"C端付费课"里有跟我们的TA直接重合的竞品。</li>
+        <li>该类别目前仅一个直接竞品（斑码），且深度不够。</li>
+        <li>整体仍是蓝海——"教白领搭AI系统"供给严重不足。</li>
+      </ol>
+    </div>
+
+    <div class="grid-2">
+      <div class="card">
+        <span class="tag tag-blue">免费教程IP</span>
+        <h3 style="margin-top:8px;">秋芝2046、姜Dora</h3>
+        <p>高质量免费教程引流，单条播放百万级。<strong style="color:#1a8a3e;">信任度高</strong></p>
+      </div>
+      <div class="card">
+        <span class="tag tag-green">C端付费课</span>
+        <h3 style="margin-top:8px;">斑码训练营</h3>
+        <p>低价付费+社群陪跑+工具实战。<strong style="color:var(--gold);">信任度中</strong></p>
+      </div>
+      <div class="card">
+        <span class="tag tag-red">割韭菜漏斗</span>
+        <h3 style="margin-top:8px;">AI副业4级链</h3>
+        <p>低价引流→层层加码→承诺变现。<strong style="color:var(--coral);">信任度极低</strong></p>
+      </div>
+      <div class="card">
+        <span class="tag tag-orange">B端内训</span>
+        <h3 style="margin-top:8px;">乘路资讯、爱玩牛</h3>
+        <p>整包服务+陪跑+数字化转型。<strong style="color:var(--gold);">信任度中高</strong></p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ===== 03 五个竞品案例 ===== -->
+<div class="sec">
+  <div class="wrap">
+    <div class="sec-eyebrow">03</div>
+    <div class="sec-title">五个竞品案例</div>
+    <div class="sec-desc">标注来源平台 · 附信息源链接</div>
+
+    <!-- 案例1 -->
+    <div class="case" style="margin-bottom:16px;">
+      <div class="case-head">
+        <div class="case-num" style="background:var(--coral);">1</div>
+        <div class="case-title">斑码·AI办公自动化训练营</div>
+        <div class="case-tags"><span class="tag tag-green">C端付费</span><span class="tag tag-blue">知乎</span></div>
+      </div>
+      <div class="grid-2">
+        <div>
+          <div class="concl">
+            <p>① <strong>最直接竞品</strong>，TA和定位跟我们高度重合</p>
+            <p>② 深度不够：14天、轻交付、无迭代</p>
+            <p>③ 验证白领愿为"有人带实操"付费（99元/期）</p>
+          </div>
+        </div>
+        <div>
+          <p style="font-size:14px;color:var(--text2);"><strong>课程：</strong>14天/30分钟 · WorkBuddy+Codex</p>
+          <p style="font-size:14px;color:var(--text2);margin-top:4px;"><strong>交付：</strong>AI员工+工作流+清单+答疑</p>
+          <p style="font-size:14px;color:var(--text2);margin-top:4px;"><strong>价格：</strong>99元/期，限500人</p>
+          <a class="src" href="https://zhuanlan.zhihu.com/p/2053393641901650361" target="_blank">🔗 知乎信息源 →</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- 案例2 -->
+    <div class="case" style="margin-bottom:16px;">
+      <div class="case-head">
+        <div class="case-num" style="background:var(--accent);">2</div>
+        <div class="case-title">秋芝2046 / 姜Dora</div>
+        <div class="case-tags"><span class="tag tag-blue">免费引流</span><span class="tag tag-blue">抖音+B站</span></div>
+      </div>
+      <div class="grid-2">
+        <div>
+          <div class="concl">
+            <p>① 最成功AI职场IP，单条最高<strong>85万赞</strong></p>
+            <p>② 免费引流，教工具不搭系统</p>
+            <p>③ 用户学完仍卡在"不会落地"——是我们的潜在客户</p>
+          </div>
+        </div>
+        <div>
+          <p style="font-size:14px;color:var(--text2);"><strong>内容结构：</strong></p>
+          <p style="font-size:14px;color:var(--text2);margin-top:2px;">工具入门（赞50-85万）</p>
+          <p style="font-size:14px;color:var(--text2);">场景实战（赞8-62万）</p>
+          <p style="font-size:14px;color:var(--text2);">概念科普（赞15-26万）</p>
+          <a class="src" href="https://www.douyin.com/video/7636872072064470298" target="_blank">🔗 抖音信息源 →</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- 案例3+4 -->
+    <div class="grid-2">
+      <div class="case">
+        <div class="case-head">
+          <div class="case-num" style="background:var(--gold);">3</div>
+          <div class="case-title" style="font-size:15px;">AI副业4级漏斗</div>
+          <div class="case-tags"><span class="tag tag-red">割韭菜</span></div>
+        </div>
+        <div class="concl">
+          <p>① 低价引流→层层加码→学员花2万全打水漂</p>
+          <p>② 信任极低，反而帮我们衬托</p>
+        </div>
+        <p style="font-size:13px;color:var(--text3);margin-top:6px;">299→3980→5980→9980</p>
+        <a class="src" href="https://zhuanlan.zhihu.com/p/2039387541359571054" target="_blank">🔗 知乎 →</a>
+      </div>
+      <div class="case">
+        <div class="case-head">
+          <div class="case-num" style="background:var(--navy);">4</div>
+          <div class="case-title" style="font-size:15px;">乘路资讯</div>
+          <div class="case-tags"><span class="tag tag-orange">B端</span></div>
+        </div>
+        <div class="concl">
+          <p>① B端企业AI培训，也覆盖跨境</p>
+          <p>② 整包服务，赛道不同。验证需求真实存在</p>
+        </div>
+        <a class="src" href="https://zhuanlan.zhihu.com/p/2067330023304979226" target="_blank">🔗 知乎 →</a>
+      </div>
+    </div>
+
+    <!-- 案例5 -->
+    <div class="case" style="margin-top:16px;">
+      <div class="case-head">
+        <div class="case-num" style="background:var(--navy);">5</div>
+        <div class="case-title" style="font-size:15px;">真术相成 / 爱玩牛</div>
+        <div class="case-tags"><span class="tag tag-orange">B/G端</span><span class="tag tag-blue">知乎</span></div>
+      </div>
+      <div class="concl">
+        <p>政府/企业采购路线，标准化通识培训。完全不同赛道，说明AI培训已被政策认可，需求是确定性的。</p>
+      </div>
+      <a class="src" href="https://zhuanlan.zhihu.com/p/2067609881419442063" target="_blank">🔗 知乎信息源 →</a>
+    </div>
+  </div>
+</div>
+
+<!-- ===== 04 用户真实反馈 ===== -->
+<div class="sec">
+  <div class="wrap">
+    <div class="sec-eyebrow">04</div>
+    <div class="sec-title">用户真实反馈</div>
+    <div class="sec-desc">从3,800+条评论中过滤噪音后精选</div>
+
+    <div class="keybox">
+      <div class="keybox-title">核心结论</div>
+      <ol>
+        <li><strong>信任是最稀缺资源</strong>——不卖课的真诚内容获得最高好感。</li>
+        <li><strong>TA画像完全验证</strong>——活跃用户是有经验的职场人，不是学生或程序员。</li>
+        <li><strong>教操作没有前途</strong>——用户自己担心"学了会不会白学"。</li>
+        <li><strong>市场已等在那里</strong>——用户自发要求学"搭skill"，需求跑在供给前面。</li>
+      </ol>
+    </div>
+
+    <div class="grid-2">
+      <div class="case">
+        <div class="case-head"><div class="case-num" style="background:var(--coral);">1</div><div class="case-title" style="font-size:15px;">信任：渴望真诚</div></div>
+        <div class="quote">"没有卖课，讲的又好。反手就是点赞加收藏。"<div class="quote-src">知乎 · 223赞</div></div>
+        <div class="quote">"等着出现卖课链接呢，没想到是真的没有。"<div class="quote-src">知乎 · 126赞</div></div>
+      </div>
+      <div class="case">
+        <div class="case-head"><div class="case-num" style="background:var(--accent);">2</div><div class="case-title" style="font-size:15px;">TA画像：评论区里是谁</div></div>
+        <div class="quote">"某头部服装品牌视觉负责人，拍摄已一半替换成AI。"<div class="quote-src">B站 · 1559赞</div></div>
+        <div class="quote">"工作十年，平面设计，拥抱新时代。"<div class="quote-src">B站 · 941赞</div></div>
+      </div>
+      <div class="case">
+        <div class="case-head"><div class="case-num" style="background:var(--gold);">3</div><div class="case-title" style="font-size:15px;">痛点：会操作≠能解决</div></div>
+        <div class="quote">"不出半年就不需要学习成本了，白学了。"<div class="quote-src">抖音 · 198赞</div></div>
+        <div class="quote">"反复描述三遍问题，每次都解决不了。"<div class="quote-src">B站 · 46赞</div></div>
+      </div>
+      <div class="case">
+        <div class="case-head"><div class="case-num" style="background:#1a8a3e;">4</div><div class="case-title" style="font-size:15px;">期待：主动要求系统化</div></div>
+        <div class="quote">"从Token到Agent Skill全给串起来了！"<div class="quote-src">B站 · 256赞</div></div>
+        <div class="quote">"可以出一个搭建skill的教程了，期待！"<div class="quote-src">B站 · 185赞</div></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ===== 05 需求缺口 ===== -->
+<div class="sec">
+  <div class="wrap">
+    <div class="sec-eyebrow">05</div>
+    <div class="sec-title">需求缺口</div>
+    <div class="sec-desc">用户想要什么但没人给 · 每个对应课程优化方向</div>
+
+    <div class="keybox">
+      <div class="keybox-title">核心结论</div>
+      <ol>
+        <li><strong>缺口一</strong>：教了操作但用不到自己工作上 → 需要场景落地</li>
+        <li><strong>缺口二</strong>：概念都听过但串不起来 → 需要串联式扫盲</li>
+        <li><strong>缺口三</strong>：工具会用但用不好 → 需要指令设计教学</li>
+        <li><strong>缺口四</strong>：国内环境卡死 → 需要工具获取与成本管理（竞品空白）</li>
+        <li><strong>缺口五</strong>：搭好了不会用 → 需要手把手带做+养系统</li>
+      </ol>
+    </div>
+
+    <div class="grid-2">
+      <div class="case">
+        <div class="case-head"><div class="case-num" style="background:var(--coral);">1</div><div class="case-title" style="font-size:14px;">教了操作用不到自己工作</div><div class="case-tags"><span class="tag tag-red">最大缺口</span></div></div>
+        <div class="quote">"这个工作流能直接套用到我的行业吗？"<div class="quote-src">抖音</div></div>
+        <p class="arrow">→ 强化"工作拆解"+"实战落地"</p>
+      </div>
+      <div class="case">
+        <div class="case-head"><div class="case-num" style="background:var(--accent);">2</div><div class="case-title" style="font-size:14px;">概念串不起来</div><div class="case-tags"><span class="tag tag-blue">认知缺口</span></div></div>
+        <div class="quote">"全给串起来了，把AI底裤都扒明白了！"<div class="quote-src">B站 · 256赞</div></div>
+        <p class="arrow">→ 扫盲改为串联式，画关系图</p>
+      </div>
+      <div class="case">
+        <div class="case-head"><div class="case-num" style="background:var(--accent2);">3</div><div class="case-title" style="font-size:14px;">会用但用不好</div><div class="case-tags"><span class="tag tag-blue">能力缺口</span></div></div>
+        <div class="quote">"kimi每次都给我变，真的要发疯了。"<div class="quote-src">小红书 · 36赞</div></div>
+        <p class="arrow">→ 强化"执行协议"教学</p>
+      </div>
+      <div class="case">
+        <div class="case-head"><div class="case-num" style="background:var(--gold);">4</div><div class="case-title" style="font-size:14px;">国内环境卡死</div><div class="case-tags"><span class="tag tag-orange">环境缺口</span></div></div>
+        <div class="quote">"国内压根接触不到GPT、Claude。"<div class="quote-src">小红书 · 165赞</div></div>
+        <p class="arrow">→ 新增"工具获取与成本管理"</p>
+      </div>
+    </div>
+
+    <div class="case" style="margin-top:16px;">
+      <div class="case-head"><div class="case-num" style="background:#1a8a3e;">5</div><div class="case-title" style="font-size:14px;">搭好了不会用</div><div class="case-tags"><span class="tag tag-green">落地缺口</span></div></div>
+      <div class="grid-2">
+        <div class="quote" style="margin:0;">"已经在用workbuddy了，但还是没学会怎么搭个人工作台。"<div class="quote-src">抖音</div></div>
+        <p class="arrow">→ 实战改"手把手带做" + 新增"养系统"</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ===== 06 课程大纲优化建议 ===== -->
+<div class="sec">
+  <div class="wrap">
+    <div class="sec-eyebrow">06</div>
+    <div class="sec-title">课程大纲优化建议</div>
+    <div class="sec-desc">基于竞品调研 + 用户反馈 + 需求缺口</div>
+
+    <div class="keybox">
+      <div class="keybox-title">本次优化依据</div>
+      <ol>
+        <li><strong>斑码</strong>验证需求但深度不够 → 做更深、更场景化</li>
+        <li><strong>秋芝2046</strong>证明概念串联式科普极具吸引力 → 免费课和扫盲都借鉴这种形式</li>
+        <li><strong>用户最大缺口</strong>是场景落地 → 付费课新增"工作拆解"前置环节</li>
+        <li><strong>国内工具环境</strong>是隐形门槛 → 两版本都加入"工具获取"指导</li>
+        <li><strong>用户自发要求</strong>学搭skill → 付费课从"展示"升级为"手把手"</li>
+      </ol>
+    </div>
+
+    <!-- 免费版 -->
+    <div class="course-header">
+      <span class="label" style="background:var(--accent-light);color:var(--accent);">免费公开课 · 引流版</span>
+      <h3>《AI不能只当工具用》</h3>
+      <p>60分钟线下宣讲 · 目标：建立专业权威感 + 筛选付费意向</p>
+    </div>
+
+    <div class="grid-2">
+      <div class="mod">
+        <div class="mod-head"><div class="mod-num" style="background:var(--accent2);">1</div><div class="mod-title">破冰共鸣</div><div class="mod-tag">8分钟</div></div>
+        <p class="detail">互动"你们怎么用AI" → 展示四层阶梯 → 制造认知落差</p>
+      </div>
+      <div class="mod">
+        <div class="mod-head"><div class="mod-num" style="background:var(--accent2);">2</div><div class="mod-title">实战展示 · 跨境</div><div class="mod-tag">20分钟</div></div>
+        <p class="detail">用竞品分析系统跑真实案例，展示"系统化"威力</p>
+      </div>
+      <div class="mod">
+        <div class="mod-head"><div class="mod-num" style="background:var(--accent2);">3</div><div class="mod-title">通用场景共鸣</div><div class="mod-tag">12分钟</div></div>
+        <p class="detail">PPT制作：手工 vs 系统化对比，拉全场共鸣</p>
+      </div>
+      <div class="mod">
+        <div class="mod-head"><div class="mod-num" style="background:var(--accent2);">4</div><div class="mod-title">概念串联 · 认知升维</div><div class="mod-tag">12分钟</div></div>
+        <div class="note">借鉴秋芝2046高赞模式——把概念串成一条线</div>
+        <p class="detail">展示workspace全景，"切菜vs建厨房"比喻</p>
+      </div>
+      <div class="mod full">
+        <div class="mod-head"><div class="mod-num" style="background:var(--accent2);">5</div><div class="mod-title">收尾与钩子</div><div class="mod-tag">8分钟</div></div>
+        <p class="detail">加微信领资料包（工具清单+prompt模板+入门指南） · 留悬念："怎么亲手搭一个系统，留到后面"</p>
+      </div>
+    </div>
+
+    <!-- 付费版 -->
+    <div class="course-header">
+      <span class="label" style="background:#e6f8f0;color:#1a8a3e;">付费课程 · 转化版</span>
+      <h3>《AI系统化工作法——给自己的工作造一个AI引擎》</h3>
+      <p>核心承诺：学完带走1-2个自己搭的系统，不是笔记</p>
+    </div>
+
+    <div class="grid-2">
+      <div class="mod">
+        <div class="mod-head"><div class="mod-num" style="background:#1a8a3e;">0</div><div class="mod-title">AI基础扫盲</div><div class="mod-tag" style="color:var(--accent);">优化</div></div>
+        <div class="note">从逐个解释改为串联式，画关系图</div>
+        <p class="detail">五组：大模型/Token → Prompt → Agent/Skill/MCP → API → 市场全景</p>
+      </div>
+      <div class="mod">
+        <div class="mod-head"><div class="mod-num" style="background:#1a8a3e;">★</div><div class="mod-title">工具获取与成本管理</div><div class="mod-tag" style="color:#1a8a3e;font-weight:700;">新增</div></div>
+        <div class="note">竞品完全空白。165赞"国内压根接触不到"</div>
+        <p class="detail">免费方案组合 vs 付费 · 按场景推荐 · API费用实测</p>
+      </div>
+      <div class="mod">
+        <div class="mod-head"><div class="mod-num" style="background:var(--accent);">1</div><div class="mod-title">认知重构</div><div class="mod-tag">理论层</div></div>
+        <p class="detail">四层阶梯 · "做事"vs"造机器" · 手工vs系统对比</p>
+      </div>
+      <div class="mod">
+        <div class="mod-head"><div class="mod-num" style="background:var(--accent);">2</div><div class="mod-title">拆解你的工作</div><div class="mod-tag" style="color:var(--accent);">优化</div></div>
+        <div class="note">学员必须选自己工作的真实任务来拆解</div>
+        <p class="detail">什么该系统化 · 输入→处理→输出→验证</p>
+      </div>
+      <div class="mod full">
+        <div class="mod-head"><div class="mod-num" style="background:var(--accent);">3</div><div class="mod-title">搭建系统骨架</div><div class="mod-tag">核心硬货</div></div>
+        <p class="detail"><strong>执行协议</strong>（模糊→精确） · <strong>质量规则</strong>（合格标准） · <strong>标准流程</strong>（步骤序列） · <strong>技能库</strong>（封装复用） · <strong>复盘机制</strong>（越用越好）</p>
+      </div>
+      <div class="mod">
+        <div class="mod-head"><div class="mod-num" style="background:#1a8a3e;">4</div><div class="mod-title">实战落地</div><div class="mod-tag" style="color:#1a8a3e;font-weight:700;">手把手</div></div>
+        <div class="note">全程辅导，带走能用的系统</div>
+        <p class="detail"><strong style="color:var(--accent2);">跨境：</strong>竞品分析+Reviews<br><strong style="color:var(--accent);">通用：</strong>PPT+报告系统</p>
+      </div>
+      <div class="mod">
+        <div class="mod-head"><div class="mod-num" style="background:#1a8a3e;">5</div><div class="mod-title">养系统</div><div class="mod-tag" style="color:#1a8a3e;font-weight:700;">竞品缺失</div></div>
+        <div class="note">所有竞品都没有的环节，最大壁垒</div>
+        <p class="detail">系统为何"腐烂" · 错题→修正→迭代 · "别修AI，修系统"</p>
+      </div>
+    </div>
+
+    <div class="keybox" style="margin-top:24px;">
+      <div class="keybox-title">本次优化4个关键变化</div>
+      <ol>
+        <li><strong>新增</strong>"工具获取与成本管理"——填补竞品完全忽略的缺口</li>
+        <li><strong>升级</strong>扫盲——改为概念串联式，借鉴秋芝2046高赞模式</li>
+        <li><strong>升级</strong>实战——学员自带场景+手把手带做</li>
+        <li><strong>强化</strong>"养系统"——作为竞品没有的壁垒重点打磨</li>
+      </ol>
+    </div>
+  </div>
+</div>
+
+<div class="footer">
+  <div class="wrap">
+    <h2>供给不足，需求已等在那里</h2>
+    <p>AI培训竞品调研报告 · 2026年8月</p>
+  </div>
+</div>
+
+</body>
+</html>
